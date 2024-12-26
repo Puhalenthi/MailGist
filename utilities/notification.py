@@ -1,5 +1,6 @@
 import winotify
 
+
 class Notification:
     def __init__(self, app_id, title, msg, email_urgency="medium"):
         self.app_id = app_id
@@ -14,11 +15,11 @@ class Notification:
             msg=self.msg,
         )
 
-        if (self.email_urgency == "low"):
+        if self.email_urgency == "low":
             toast.set_audio(winotify.audio.Mail, loop=False)
-        elif (self.email_urgency == "medium"):
+        elif self.email_urgency == "medium":
             toast.set_audio(winotify.audio.Default, loop=False)
-        elif (self.email_urgency == "high"):
+        elif self.email_urgency == "high":
             toast.set_audio(winotify.audio.LoopingAlarm, loop=False)
 
         toast.show()
@@ -29,6 +30,6 @@ if __name__ == "__main__":
         app_id="MailGist",
         title="Hello, World!",
         msg="This is a notification from Python.",
-        email_urgency="high"
+        email_urgency="high",
     )
     notif.show()

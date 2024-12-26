@@ -11,10 +11,10 @@ class MailGist(ABC):
         self.client_secret = client_secret
 
         self.agent = agent.Agent(token, endpoint, model_name)
-    
+
     def summarize_email(self, body):
         return self.agent.summarize_email(body)
-    
+
     def process_summary(self, summary):
         summaryArr = summary.split("\n")
         print(summaryArr)
@@ -27,14 +27,12 @@ class MailGist(ABC):
             urgency = "high"
         else:
             urgency = "medium"
-        
+
         return [urgency, summaryArr[2]]
-        
-        
+
     @abstractmethod
     def start(self):
         pass
-
 
 
 class GmailMailGist(MailGist):
@@ -51,11 +49,12 @@ class GmailMailGist(MailGist):
                     app_id="MailGist",
                     title="TEMP",
                     msg=summary[1],
-                    email_urgency=summary[0]
+                    email_urgency=summary[0],
                 )
                 toast.show()
                 prevBody = body
             await asyncio.sleep(5)
+
 
 class OutlookMailGist(MailGist):
     def start(self):
