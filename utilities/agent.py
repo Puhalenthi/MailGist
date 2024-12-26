@@ -9,6 +9,8 @@ class Agent:
             self.system_role = "developer"
         elif model_name == "gpt-4o":
             self.system_role = "system"
+        elif model_name == "gpt-4o-mini":
+            self.system_role = "system"
 
     def summarize_email(self, body):
         response = self.client.chat.completions.create(
