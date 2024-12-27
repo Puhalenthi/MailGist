@@ -30,9 +30,11 @@ class MailGist(ABC):
 
         return [urgency, summaryArr[2]]
 
-    @abstractmethod
     def start(self):
         pass
+    
+    def listen(self):
+        asyncio.run(self.start())
 
 
 class GmailMailGist(MailGist):
