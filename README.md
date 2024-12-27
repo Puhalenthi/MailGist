@@ -1,6 +1,6 @@
 # MailGist
 
-MailGist is a project designed to summarize your emails from many clients (only Gmail is supported now) and display it as a notification on your Windows Taskbar.
+MailGist is a project designed to summarize your emails from Gmail and display them as a notification on your Windows Taskbar.
 
 ## Prerequisites
 
