@@ -16,7 +16,7 @@ Before you begin, complete the following steps to authorize the application:
 To install MailGist, follow these steps:
 
 ```bash
-git clone https://github.com/your-username/MailGist.git
+git clone https://github.com/Puhalenthi/MailGist.git
 cd MailGist
 pip install -r requirements.txt
 ```
