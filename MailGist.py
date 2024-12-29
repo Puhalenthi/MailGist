@@ -42,14 +42,14 @@ class GmailMailGist(MailGist):
         gmailClient = gmail.Gmail(self.client_secret)
         prevBody = None
         while True:
-            body = gmailClient.run()
+            sender, body = gmailClient.run()
             if body != prevBody:
                 summary = self.process_summary(self.summarize_email(body))
                 print(summary)
 
                 toast = notification.Notification(
                     app_id="MailGist",
-                    title="TEMP",
+                    title=sender,
                     msg=summary[1],
                     email_urgency=summary[0],
                 )

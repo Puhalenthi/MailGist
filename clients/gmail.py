@@ -70,7 +70,11 @@ class Gmail:
                 .get(userId="me", id=messages[0]["id"])
                 .execute()
             )
-            return self.parse_email(message)
+            headers = message.get("payload", {}).get("headers", [])
+            sender = next((header["value"] for header in headers if header["name"] == "From"), "Unknown sender").split("<")[0]
+            body = self.parse_email(message)
+            
+            return [sender, body]
 
         except HttpError as error:
             # TODO(developer) - Handle errors from gmail API.
